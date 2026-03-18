@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Document Writer Online - No Login Required | freepage.app</title>
+<meta name="description" content="Free online document writer with rich formatting, auto-save, and export. No login, no cloud — works in your browser. freepage.app">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://freepage.app/">
+<meta property="og:title" content="Free Document Writer Online - No Login Required | freepage.app">
+<meta property="og:description" content="Free online document writer with rich formatting, auto-save, and export. No login, no cloud — works in your browser.">
+<meta property="og:image" content="https://freepage.app/og-image.svg">
+<meta property="og:url" content="https://freepage.app/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Document Writer Online - No Login Required | freepage.app">
+<meta name="twitter:description" content="Free online document writer with rich formatting, auto-save, and export. No login, no cloud — works in your browser.">
+<meta name="twitter:image" content="https://freepage.app/og-image.svg">
+<meta name="theme-color" content="#faf9f6">
+<link rel="manifest" href="/manifest.json">
+<!-- hreflang tags to be added when translations are available -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "freepage.app",
+  "url": "https://freepage.app",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Free online document writer with rich formatting, auto-save, and export. No login required."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is freepage.app really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, freepage.app is 100% free to use. There are no hidden fees, no premium tiers required for basic functionality, and no ads. All core document writing features including rich text formatting, multiple document management, auto-save, and export to TXT, Markdown, and HTML are completely free."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use freepage.app offline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. After your first visit, freepage.app caches all necessary files using a service worker. You can continue writing, editing, and managing documents even without an internet connection. All data is stored locally in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where are my documents saved?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All documents are saved to your browser's localStorage. This means your documents never leave your device and are never sent to any server. They persist between sessions as long as you don't clear your browser data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I export my documents to Word?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "freepage.app currently supports export to plain text (.txt), Markdown (.md), and HTML (.html) formats. While direct .docx export is not yet available, you can export to HTML and open it in Microsoft Word or Google Docs, which will preserve your formatting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I clear my browser data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you clear your browser's localStorage, your documents will be deleted. To protect your work, regularly export important documents using the export feature. freepage.app recommends exporting backups of critical documents to your local file system."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does freepage.app work on mobile?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, freepage.app is fully responsive and works on mobile devices including phones and tablets. The interface adapts to smaller screens with a slide-out sidebar, collapsible panels, and touch-friendly controls."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://freepage.app/"
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#faf9f6;--surface:#f4f2ee;--border:#e8e4dd;
+--text-primary:#1a1917;--text-secondary:#6b6760;--text-muted:#9e9b96;
+--accent:#C49A2A;--accent-hover:#A8831F;--accent-text:#ffffff;
+--destructive:#c0392b;
+--shadow:0 1px 3px rgba(0,0,0,0.06),0 2px 8px rgba(0,0,0,0.04);
+--font-ui:'DM Sans',sans-serif;--font-content:'Lora',serif;
+}
+html.dark{
+--bg:#141412;--surface:#1e1c1a;--border:#2e2b27;
+--text-primary:#f0ede8;--text-secondary:#9e9b96;--text-muted:#6b6760;
+--accent:#D4A835;--accent-hover:#C49A2A;--accent-text:#ffffff;
+--shadow:0 1px 3px rgba(0,0,0,0.3),0 2px 8px rgba(0,0,0,0.2);
+}
+html{font-size:15px;line-height:1.6}
+body{font-family:var(--font-ui);background:var(--bg);color:var(--text-primary);transition:background 0.15s ease,color 0.15s ease;overflow:hidden;height:100vh}
+::selection{background:rgba(196,154,42,0.2)}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--text-muted)}
+
+/* HEADER */
+header{height:52px;display:flex;align-items:center;padding:0 16px;border-bottom:1px solid var(--border);background:var(--bg);position:relative;z-index:100;gap:8px;flex-shrink:0}
+.brand{font-family:var(--font-ui);font-size:15px;font-weight:600;color:var(--accent);white-space:nowrap;user-select:none}
+.header-center{flex:1;display:flex;justify-content:center;align-items:center;min-width:0}
+.doc-title-input{font-family:var(--font-ui);font-size:14px;font-weight:500;color:var(--text-primary);background:transparent;border:1px solid transparent;border-radius:6px;padding:4px 8px;text-align:center;max-width:300px;width:100%;outline:none;transition:all 0.15s ease}
+.doc-title-input:hover{border-color:var(--border)}
+.doc-title-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(196,154,42,0.12)}
+.header-actions{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.header-btn{font-family:var(--font-ui);font-size:13px;font-weight:500;padding:6px 12px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text-secondary);cursor:pointer;transition:all 0.15s ease;white-space:nowrap}
+.header-btn:hover{background:var(--surface)}
+.header-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.header-btn.primary{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+.header-btn.primary:hover{background:var(--accent-hover)}
+.hamburger-btn{display:none;width:32px;height:32px;border:none;background:transparent;color:var(--text-primary);cursor:pointer;border-radius:6px;font-size:18px;align-items:center;justify-content:center;flex-shrink:0}
+.hamburger-btn:hover{background:var(--surface)}
+
+/* THEME TOGGLE */
+.theme-toggle{width:48px;height:26px;border-radius:13px;border:1px solid var(--border);background:var(--surface);cursor:pointer;position:relative;transition:all 0.15s ease;flex-shrink:0}
+.theme-toggle::after{content:'☀️';position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:12px;transition:all 0.15s ease;line-height:20px}
+html.dark .theme-toggle::after{content:'🌙';left:24px}
+
+/* MAIN LAYOUT */
+.app-layout{display:flex;height:calc(100vh - 52px - 32px);overflow:hidden}
+
+/* SIDEBAR */
+.sidebar{width:240px;border-right:1px solid var(--border);background:var(--bg);display:flex;flex-direction:column;flex-shrink:0;overflow:hidden;transition:margin-left 0.2s ease,opacity 0.2s ease}
+.sidebar.collapsed{margin-left:-240px;opacity:0;pointer-events:none}
+.sidebar-header{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;gap:8px}
+.sidebar-header .header-btn{flex:1;text-align:center;font-size:12px;padding:6px 8px}
+.doc-list{flex:1;overflow-y:auto}
+.doc-item{padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background 0.15s ease;position:relative}
+.doc-item:hover{background:var(--surface)}
+.doc-item.active{background:var(--surface);border-left:3px solid var(--accent);padding-left:13px}
+.doc-item-title{font-family:var(--font-ui);font-size:13px;font-weight:500;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:24px}
+.doc-item-meta{font-family:var(--font-ui);font-size:11px;color:var(--text-muted);margin-top:4px}
+.doc-item-menu{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:24px;height:24px;border:none;background:transparent;color:var(--text-muted);cursor:pointer;border-radius:6px;font-size:14px;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.15s ease}
+.doc-item:hover .doc-item-menu{opacity:1}
+.doc-item-menu:hover{background:var(--surface);color:var(--text-primary)}
+
+/* CONTEXT MENU */
+.context-menu{position:fixed;background:var(--bg);border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow);padding:4px;z-index:1000;min-width:160px;display:none}
+.context-menu.show{display:block}
+.context-menu button{display:flex;align-items:center;gap:8px;width:100%;padding:8px 12px;border:none;background:transparent;color:var(--text-primary);font-family:var(--font-ui);font-size:13px;cursor:pointer;border-radius:6px;text-align:left;transition:background 0.15s ease}
+.context-menu button:hover{background:var(--surface)}
+.context-menu button.destructive{color:var(--destructive)}
+.context-menu button.destructive:hover{background:rgba(192,57,43,0.08)}
+
+/* EDITOR AREA */
+.editor-area{flex:1;display:flex;flex-direction:column;min-width:0;overflow:hidden}
+
+/* TOOLBAR */
+.toolbar{display:flex;align-items:center;padding:4px 8px;border-bottom:1px solid var(--border);background:var(--bg);flex-wrap:nowrap;overflow-x:auto;gap:2px;flex-shrink:0;transition:opacity 0.15s ease}
+.toolbar-divider{width:1px;height:20px;background:var(--border);margin:0 4px;flex-shrink:0}
+.tool-btn{width:32px;height:32px;border:none;background:transparent;color:var(--text-secondary);cursor:pointer;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all 0.15s ease;flex-shrink:0;position:relative}
+.tool-btn:hover{background:var(--surface);color:var(--text-primary)}
+.tool-btn.active{background:var(--surface);color:var(--text-primary)}
+.tool-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tool-btn[data-tooltip]:hover::after{content:attr(data-tooltip);position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:6px;padding:4px 8px;background:var(--text-primary);color:var(--bg);font-family:var(--font-ui);font-size:11px;border-radius:4px;white-space:nowrap;z-index:100;pointer-events:none;animation:tooltipIn 0.15s ease 0.4s both}
+@keyframes tooltipIn{from{opacity:0;transform:translateX(-50%) translateY(-2px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+
+/* FIND & REPLACE */
+.find-replace-bar{display:none;padding:8px 12px;background:var(--surface);border-bottom:1px solid var(--border);gap:8px;align-items:center;flex-wrap:wrap}
+.find-replace-bar.show{display:flex}
+.find-replace-bar input{font-family:var(--font-ui);font-size:13px;padding:6px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text-primary);outline:none;flex:1;min-width:120px}
+.find-replace-bar input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(196,154,42,0.12)}
+.find-replace-bar .match-count{font-family:var(--font-ui);font-size:12px;color:var(--text-muted);white-space:nowrap}
+.find-replace-bar button{font-family:var(--font-ui);font-size:12px;padding:5px 10px;border:1px solid var(--border);border-radius:6px;background:transparent;color:var(--text-secondary);cursor:pointer;transition:all 0.15s ease;white-space:nowrap}
+.find-replace-bar button:hover{background:var(--bg)}
+.find-close{width:28px;height:28px;border:none!important;padding:0!important;display:flex;align-items:center;justify-content:center;font-size:16px}
+
+/* EDITOR */
+.editor-wrapper{flex:1;overflow-y:auto;display:flex;justify-content:center}
+.editor{font-family:var(--font-content);font-size:16px;line-height:1.75;color:var(--text-primary);max-width:760px;width:100%;padding:32px 24px;outline:none;min-height:100%;word-wrap:break-word;overflow-wrap:break-word}
+.editor h1,.editor h2,.editor h3{font-family:var(--font-ui);font-weight:700;margin:24px 0 8px}
+.editor h1{font-size:28px;line-height:1.3}
+.editor h2{font-size:22px;line-height:1.35}
+.editor h3{font-size:18px;line-height:1.4}
+.editor p{margin:0 0 12px}
+.editor blockquote{border-left:3px solid var(--accent);padding-left:16px;color:var(--text-secondary);font-style:italic;margin:12px 0}
+.editor a{color:var(--accent);text-decoration:underline}
+.editor code{background:var(--surface);padding:2px 6px;border-radius:4px;font-family:'Courier New',monospace;font-size:0.9em}
+.editor hr{border:none;border-top:1px solid var(--border);margin:24px 0}
+.editor ul,.editor ol{padding-left:24px;margin:8px 0}
+.editor li{margin:4px 0}
+.editor img{max-width:100%;height:auto}
+
+/* RIGHT PANEL */
+.right-panel{width:260px;border-left:1px solid var(--border);background:var(--bg);overflow-y:auto;flex-shrink:0;padding:16px;transition:margin-right 0.2s ease,opacity 0.2s ease}
+.right-panel.collapsed{margin-right:-260px;opacity:0;pointer-events:none}
+.stats-title{font-family:var(--font-ui);font-size:12px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:12px}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px;box-shadow:var(--shadow)}
+.stat-number{font-family:var(--font-ui);font-size:20px;font-weight:700;color:var(--text-primary);line-height:1.2}
+.stat-label{font-family:var(--font-ui);font-size:10px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;margin-top:2px}
+.upgrade-prompt{border-top:1px solid var(--border);padding-top:16px;margin-top:8px}
+.upgrade-prompt .lock-title{font-family:var(--font-ui);font-size:13px;font-weight:500;color:var(--text-secondary);margin-bottom:4px}
+.upgrade-prompt .lock-desc{font-family:var(--font-ui);font-size:12px;color:var(--text-muted);margin-bottom:8px;line-height:1.5}
+.upgrade-prompt .lock-link{font-family:var(--font-ui);font-size:12px;color:var(--accent);cursor:pointer;text-decoration:none}
+.upgrade-prompt .lock-link:hover{text-decoration:underline}
+
+/* STATUS BAR */
+.status-bar{height:32px;background:var(--surface);border-top:1px solid var(--border);display:flex;align-items:center;padding:0 16px;font-family:var(--font-ui);font-size:12px;color:var(--text-muted);flex-shrink:0;z-index:100}
+.status-left{flex:1}
+.status-center{flex:1;text-align:center}
+.status-right{flex:1;text-align:right}
+
+/* BADGE */
+.suite-badge{position:fixed;bottom:36px;right:8px;font-family:var(--font-ui);font-size:11px;font-weight:400;color:var(--text-muted);z-index:10;padding:4px 8px;user-select:none}
+
+/* TOAST */
+.toast-container{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:2000;display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none}
+.toast{background:var(--text-primary);color:var(--bg);font-family:var(--font-ui);font-size:13px;padding:10px 20px;border-radius:8px;box-shadow:var(--shadow);animation:toastIn 0.2s ease,toastOut 0.2s ease 2.8s forwards;pointer-events:auto}
+@keyframes toastIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes toastOut{from{opacity:1}to{opacity:0}}
+
+/* EXPORT DROPDOWN */
+.export-dropdown{position:absolute;top:100%;right:0;margin-top:4px;background:var(--bg);border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow);padding:4px;min-width:180px;display:none;z-index:200}
+.export-dropdown.show{display:block}
+.export-dropdown button{display:flex;align-items:center;gap:8px;width:100%;padding:8px 12px;border:none;background:transparent;color:var(--text-primary);font-family:var(--font-ui);font-size:13px;cursor:pointer;border-radius:6px;text-align:left;transition:background 0.15s ease}
+.export-dropdown button:hover{background:var(--surface)}
+
+/* FOCUS MODE */
+.focus-mode .sidebar,.focus-mode .right-panel{margin-left:-240px;opacity:0;pointer-events:none}
+.focus-mode .right-panel{margin-left:0;margin-right:-260px}
+.focus-mode .toolbar{opacity:0.4}
+.focus-mode .toolbar:hover{opacity:1}
+.focus-mode .editor{max-width:720px}
+.focus-mode .status-left,.focus-mode .status-right{visibility:hidden}
+.focus-mode .suite-badge{display:none}
+
+/* LINK DIALOG */
+.link-dialog-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:1000;display:none;align-items:center;justify-content:center}
+.link-dialog-overlay.show{display:flex}
+.link-dialog{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:24px;width:380px;max-width:90vw;box-shadow:var(--shadow)}
+.link-dialog h3{font-family:var(--font-ui);font-size:16px;font-weight:600;margin-bottom:16px}
+.link-dialog label{font-family:var(--font-ui);font-size:13px;color:var(--text-secondary);display:block;margin-bottom:4px}
+.link-dialog input{width:100%;font-family:var(--font-ui);font-size:13px;padding:10px 12px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text-primary);outline:none;margin-bottom:12px}
+.link-dialog input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(196,154,42,0.12)}
+.link-dialog-actions{display:flex;gap:8px;justify-content:flex-end}
+
+/* STORAGE WARNING */
+.storage-warning{display:none;padding:8px 16px;background:rgba(196,154,42,0.1);border-bottom:1px solid var(--accent);font-family:var(--font-ui);font-size:12px;color:var(--accent);text-align:center}
+.storage-warning.show{display:block}
+
+/* MOBILE OVERLAY */
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:149}
+.sidebar-overlay.show{display:block}
+
+/* PRINT */
+@media print{
+header,.toolbar,.sidebar,.right-panel,.status-bar,.suite-badge,.find-replace-bar,.storage-warning{display:none!important}
+.app-layout{height:auto!important}
+.editor-wrapper{overflow:visible!important}
+.editor{max-width:100%!important;padding:0!important;font-size:12pt!important}
+body{overflow:visible!important;height:auto!important}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.hamburger-btn{display:flex}
+.sidebar{position:fixed;left:0;top:52px;bottom:32px;z-index:150;box-shadow:var(--shadow)}
+.sidebar:not(.collapsed){margin-left:0}
+.sidebar.collapsed{margin-left:-240px}
+.right-panel{display:none}
+.right-panel.mobile-show{display:block;position:fixed;right:0;top:52px;bottom:32px;z-index:150;box-shadow:var(--shadow);background:var(--bg)}
+.header-actions .desktop-only{display:none}
+.brand{font-size:13px}
+.doc-title-input{max-width:120px;font-size:13px}
+.editor{padding:16px}
+.suite-badge .full{display:none}
+.suite-badge .short{display:inline}
+.status-right{display:none}
+}
+@media(min-width:769px){
+.suite-badge .short{display:none}
+.mobile-only{display:none!important}
+}
+
+/* SEO SECTION */
+.seo-content{font-family:var(--font-ui);max-width:760px;margin:0 auto;padding:64px 24px;color:var(--text-primary)}
+.seo-content h1{font-family:var(--font-ui);font-size:28px;font-weight:700;margin-bottom:24px;line-height:1.3}
+.seo-content h2{font-family:var(--font-ui);font-size:22px;font-weight:600;margin:32px 0 16px;line-height:1.35}
+.seo-content p{font-family:var(--font-content);font-size:15px;line-height:1.75;margin-bottom:16px;color:var(--text-secondary)}
+.seo-content details{margin-bottom:8px;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.seo-content summary{font-family:var(--font-ui);font-size:14px;font-weight:500;padding:12px 16px;cursor:pointer;color:var(--text-primary);background:var(--surface)}
+.seo-content details p{padding:12px 16px;margin:0}
+.more-tools-footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.seo-footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--border);font-family:var(--font-ui);font-size:12px;color:var(--text-muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="storage-warning" id="storageWarning">⚠ You're approaching the browser storage limit. Export your documents to avoid data loss.</div>
+
+<header>
+  <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle sidebar">☰</button>
+  <div class="brand">freepage.app</div>
+  <div class="header-center">
+    <input type="text" class="doc-title-input" id="docTitle" value="Untitled Document" spellcheck="false" aria-label="Document title">
+  </div>
+  <div class="header-actions">
+    <button class="header-btn mobile-only" id="statsToggleBtn">Stats</button>
+    <button class="header-btn desktop-only" id="focusModeBtn">Focus</button>
+    <button class="header-btn desktop-only" id="importBtn">Import</button>
+    <div style="position:relative;display:inline-block">
+      <button class="header-btn desktop-only" id="exportBtn">Export</button>
+      <div class="export-dropdown" id="exportDropdown">
+        <button onclick="exportDoc('txt')">Export as .txt</button>
+        <button onclick="exportDoc('md')">Export as .md</button>
+        <button onclick="exportDoc('html')">Export as .html</button>
+      </div>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+  </div>
+</header>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<main class="app-layout" id="appLayout">
+  <nav class="sidebar collapsed" id="sidebar" aria-label="Document list">
+    <div class="sidebar-header">
+      <button class="header-btn primary" id="newDocBtn" style="flex:1">+ New Document</button>
+      <button class="header-btn" id="importBtnSidebar" style="flex:0">Import</button>
+    </div>
+    <div class="doc-list" id="docList"></div>
+  </nav>
+
+  <section class="editor-area">
+    <div class="toolbar" id="toolbar" role="toolbar" aria-label="Formatting toolbar">
+      <button class="tool-btn" data-cmd="bold" data-tooltip="Bold (Ctrl+B)"><b>B</b></button>
+      <button class="tool-btn" data-cmd="italic" data-tooltip="Italic (Ctrl+I)"><i>I</i></button>
+      <button class="tool-btn" data-cmd="underline" data-tooltip="Underline (Ctrl+U)"><u>U</u></button>
+      <button class="tool-btn" data-cmd="strikeThrough" data-tooltip="Strikethrough (Ctrl+Shift+S)"><s>S</s></button>
+      <div class="toolbar-divider"></div>
+      <button class="tool-btn" data-cmd="h1" data-tooltip="Heading 1 (Ctrl+Alt+1)">H1</button>
+      <button class="tool-btn" data-cmd="h2" data-tooltip="Heading 2 (Ctrl+Alt+2)">H2</button>
+      <button class="tool-btn" data-cmd="h3" data-tooltip="Heading 3 (Ctrl+Alt+3)">H3</button>
+      <div class="toolbar-divider"></div>
+      <button class="tool-btn" data-cmd="insertUnorderedList" data-tooltip="Bullet List (Ctrl+Shift+8)">•≡</button>
+      <button class="tool-btn" data-cmd="insertOrderedList" data-tooltip="Numbered List (Ctrl+Shift+7)">1.</button>
+      <button class="tool-btn" data-cmd="blockquote" data-tooltip="Blockquote (Ctrl+Shift+9)">❝</button>
+      <div class="toolbar-divider"></div>
+      <button class="tool-btn" data-cmd="createLink" data-tooltip="Link (Ctrl+K)">🔗</button>
+      <button class="tool-btn" data-cmd="insertHorizontalRule" data-tooltip="Horizontal Rule">—</button>
+      <div class="toolbar-divider"></div>
+      <button class="tool-btn" data-cmd="undo" data-tooltip="Undo (Ctrl+Z)">↩</button>
+      <button class="tool-btn" data-cmd="redo" data-tooltip="Redo (Ctrl+Y)">↪</button>
+    </div>
+
+    <div class="find-replace-bar" id="findReplaceBar">
+      <input type="text" id="findInput" placeholder="Find...">
+      <input type="text" id="replaceInput" placeholder="Replace...">
+      <span class="match-count" id="matchCount">0 matches</span>
+      <button id="findPrevBtn">Prev</button>
+      <button id="findNextBtn">Next</button>
+      <button id="replaceBtn">Replace</button>
+      <button id="replaceAllBtn">Replace All</button>
+      <button class="find-close" id="findCloseBtn">×</button>
+    </div>
+
+    <div class="editor-wrapper" id="editorWrapper">
+      <article class="editor" id="editor" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Document editor"></article>
+    </div>
+  </section>
+
+  <aside class="right-panel" id="rightPanel">
+    <div class="stats-title">Document Stats</div>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-number" id="statWords">0</div><div class="stat-label">Words</div></div>
+      <div class="stat-card"><div class="stat-number" id="statChars">0</div><div class="stat-label">Characters</div></div>
+      <div class="stat-card"><div class="stat-number" id="statCharsNoSpace">0</div><div class="stat-label">Chars (no spaces)</div></div>
+      <div class="stat-card"><div class="stat-number" id="statSentences">0</div><div class="stat-label">Sentences</div></div>
+      <div class="stat-card"><div class="stat-number" id="statParagraphs">0</div><div class="stat-label">Paragraphs</div></div>
+      <div class="stat-card"><div class="stat-number" id="statReadTime">0m</div><div class="stat-label">Read Time</div></div>
+      <div class="stat-card"><div class="stat-number" id="statSpeakTime">0m</div><div class="stat-label">Speak Time</div></div>
+    </div>
+    <div class="upgrade-prompt" id="upgrade-prompt">
+      <div class="lock-title">🔒 AI Writing Assistant</div>
+      <div class="lock-desc">Get grammar checking, tone suggestions, and AI rewrites powered by AI</div>
+      <a class="lock-link" href="https://freesuite.app" target="_blank" rel="noopener">Unlock with freesuite.app · $2.88/mo</a>
+    </div>
+  </aside>
+</main>
+
+<div class="status-bar">
+  <div class="status-left" id="statusLeft">0 words · 0 characters</div>
+  <div class="status-center" id="statusCenter">All changes saved</div>
+  <div class="status-right">Ctrl+S save · Ctrl+Shift+F focus</div>
+</div>
+
+<div class="suite-badge"><span class="full">by </span><a href="https://freesuite.app" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">freesuite.app</a></div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<div class="link-dialog-overlay" id="linkDialogOverlay">
+  <div class="link-dialog">
+    <h3>Insert Link</h3>
+    <label for="linkUrl">URL</label>
+    <input type="url" id="linkUrl" placeholder="https://example.com">
+    <label for="linkText">Text (optional)</label>
+    <input type="text" id="linkText" placeholder="Link text">
+    <div class="link-dialog-actions">
+      <button class="header-btn" id="linkCancelBtn">Cancel</button>
+      <button class="header-btn primary" id="linkInsertBtn">Insert Link</button>
+    </div>
+  </div>
+</div>
+
+<div class="context-menu" id="contextMenu">
+  <button onclick="renameDoc()">✏️ Rename</button>
+  <button onclick="duplicateDoc()">📄 Duplicate</button>
+  <button class="destructive" onclick="deleteDoc()">🗑️ Delete</button>
+</div>
+
+<input type="file" id="fileInput" accept=".txt,.md" style="display:none">
+
+<!-- SEO Content Section (below the fold) -->
+<section class="seo-content" aria-label="About freepage.app">
+  <h1>Free Document Writer Online — No Login Required</h1>
+  <p>freepage.app is a free online document writer that works entirely in your browser with no login, no cloud storage, and no downloads required. Create, edit, format, and export professional documents in seconds. freepage.app supports rich text formatting including headings, bold, italic, lists, blockquotes, and links — all with real-time word count tracking and instant auto-save to your browser's local storage. Whether you need to draft a quick note, write an essay, or prepare a formatted document for export, freepage.app delivers a clean, distraction-free writing environment that loads in under 200ms. Every document you create is stored locally on your device, ensuring complete privacy. No account creation, no email verification, no cloud syncing — just open the page and start writing.</p>
+
+  <h2>What features does freepage.app offer?</h2>
+  <p>freepage.app includes a full rich text editor with support for bold, italic, underline, strikethrough, three levels of headings, ordered and unordered lists, blockquotes, hyperlinks, and horizontal rules. Every formatting option is accessible via keyboard shortcuts or the visual toolbar, making document creation fast and intuitive.</p>
+  <p>The built-in document manager supports unlimited documents stored in your browser. Create new documents, rename them, duplicate them, or delete documents you no longer need. Each document displays its title, word count, and the time since it was last edited, so you can quickly find what you need.</p>
+  <p>Auto-save runs every 2 seconds, ensuring you never lose your work. A status indicator shows whether your changes have been saved, giving you confidence that your content is safe. freepage.app supports documents up to 100,000 words without performance issues.</p>
+  <p>Export your work in three formats: plain text (.txt), Markdown (.md), or styled HTML (.html). Import existing .txt and .md files by clicking the import button or dragging files directly onto the editor. freepage.app converts Markdown syntax to rich formatting automatically.</p>
+  <p>Real-time statistics track words, characters, characters without spaces, sentences, paragraphs, estimated reading time, and speaking time. Focus mode hides all panels and centers the editor for distraction-free writing. Find and replace helps you edit efficiently across long documents.</p>
+
+  <h2>How does this free document writer work?</h2>
+  <p>Using freepage.app requires no setup, no installation, and no account. Open freepage.app in any modern web browser on your computer, tablet, or phone. The editor loads instantly and is ready for you to start writing immediately. A welcome document greets first-time visitors with a brief overview of available features and keyboard shortcuts.</p>
+  <p>As you write, freepage.app automatically saves your document to your browser's local storage every 2 seconds. You can create multiple documents using the sidebar, switch between them freely, and organize your writing projects all in one place. When your document is ready, click Export and choose your preferred format — plain text, Markdown, or formatted HTML.</p>
+  <p>freepage.app works entirely in your browser using standard web technologies. There are no server requests after the initial page load, which means freepage.app works offline after your first visit and performs with zero latency while you type.</p>
+
+  <h2>Why is freepage.app better than other online document editors?</h2>
+  <p>Most online document editors require you to create an account, verify your email, and store your documents on someone else's server. freepage.app eliminates all of that friction. There is no login wall, no cloud dependency, and no risk of a service shutting down and taking your documents with it. Your documents live on your device and nowhere else.</p>
+  <p>freepage.app contains no advertisements, no tracking scripts, no analytics, and no cookies. The entire application is built with HTML, CSS, and vanilla JavaScript — no heavy frameworks, no build tools, no bloat. This means freepage.app loads in under 200ms and responds to every keystroke without delay.</p>
+  <p>The keyboard-first design means experienced users can format text, switch documents, toggle focus mode, and export files without ever touching the mouse. Every action has a keyboard shortcut, and the interface stays out of your way while you write.</p>
+  <p>freepage.app works offline after the first visit thanks to service worker caching. Whether you are on a plane, in a coffee shop with unreliable Wi-Fi, or simply prefer to work without an internet connection, freepage.app is always ready when you are.</p>
+
+  <h2>Is freepage.app private and safe to use?</h2>
+  <p>freepage.app stores all documents exclusively in your browser's localStorage. No document content, metadata, or user information is ever transmitted to any server. There are no analytics scripts, no tracking pixels, no cookies, and no third-party integrations that could access your data. Every word you type stays on your device.</p>
+  <p>Because freepage.app has no backend server, there is no database to breach, no account credentials to steal, and no cloud storage to compromise. Your documents are as private as any file saved on your own computer. For additional security, you can export important documents to your local file system at any time.</p>
+
+  <h2>Frequently Asked Questions</h2>
+  <details>
+    <summary>Is freepage.app really free?</summary>
+    <p>Yes, freepage.app is 100% free to use. There are no hidden fees, no premium tiers required for basic functionality, and no ads. All core document writing features including rich text formatting, multiple document management, auto-save, and export to TXT, Markdown, and HTML are completely free.</p>
+  </details>
+  <details>
+    <summary>Can I use freepage.app offline?</summary>
+    <p>Yes. After your first visit, freepage.app caches all necessary files using a service worker. You can continue writing, editing, and managing documents even without an internet connection. All data is stored locally in your browser.</p>
+  </details>
+  <details>
+    <summary>Where are my documents saved?</summary>
+    <p>All documents are saved to your browser's localStorage. This means your documents never leave your device and are never sent to any server. They persist between sessions as long as you don't clear your browser data.</p>
+  </details>
+  <details>
+    <summary>Can I export my documents to Word?</summary>
+    <p>freepage.app currently supports export to plain text (.txt), Markdown (.md), and HTML (.html) formats. While direct .docx export is not yet available, you can export to HTML and open it in Microsoft Word or Google Docs, which will preserve your formatting.</p>
+  </details>
+  <details>
+    <summary>What happens if I clear my browser data?</summary>
+    <p>If you clear your browser's localStorage, your documents will be deleted. To protect your work, regularly export important documents using the export feature. freepage.app recommends exporting backups of critical documents to your local file system.</p>
+  </details>
+  <details>
+    <summary>Does freepage.app work on mobile?</summary>
+    <p>Yes, freepage.app is fully responsive and works on mobile devices including phones and tablets. The interface adapts to smaller screens with a slide-out sidebar, collapsible panels, and touch-friendly controls.</p>
+  </details>
+
+  <div class="more-tools-footer" id="more-tools-placeholder"></div>
+
+  <footer class="seo-footer">© freepage.app</footer>
+</section>
+
+<script>
+(function(){
+'use strict';
+
+// === DOM REFS ===
+const $ = id => document.getElementById(id);
+const editor = $('editor');
+const docTitle = $('docTitle');
+const sidebar = $('sidebar');
+const rightPanel = $('rightPanel');
+const docList = $('docList');
+const statusLeft = $('statusLeft');
+const statusCenter = $('statusCenter');
+const toastContainer = $('toastContainer');
+const findReplaceBar = $('findReplaceBar');
+const findInput = $('findInput');
+const replaceInput = $('replaceInput');
+const matchCount = $('matchCount');
+const contextMenu = $('contextMenu');
+const exportDropdown = $('exportDropdown');
+const fileInput = $('fileInput');
+const linkDialogOverlay = $('linkDialogOverlay');
+const linkUrl = $('linkUrl');
+const linkText = $('linkText');
+const sidebarOverlay = $('sidebarOverlay');
+const storageWarning = $('storageWarning');
+const appLayout = $('appLayout');
+
+// === STATE ===
+let data = { docs: {}, activeDocId: null, docOrder: [] };
+let saveTimeout = null;
+let unsaved = false;
+let contextMenuDocId = null;
+let savedSelection = null;
+let findMatches = [];
+let currentMatchIndex = -1;
+
+// === STORAGE ===
+const STORAGE_KEY = 'freepage_docs';
+const THEME_KEY = 'suite_theme';
+const FOCUS_KEY = 'freepage_focus';
+
+function loadData() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      data = JSON.parse(raw);
+      if (!data.docs) data.docs = {};
+      if (!data.docOrder) data.docOrder = [];
+    }
+  } catch(e) { /* ignore */ }
+  if (Object.keys(data.docs).length === 0) createWelcomeDoc();
+}
+
+function saveData() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    checkStorageUsage();
+  } catch(e) {
+    toast('Storage error — export your documents');
+  }
+}
+
+function checkStorageUsage() {
+  try {
+    let total = 0;
+    for (let k in localStorage) {
+      if (localStorage.hasOwnProperty(k)) total += localStorage[k].length * 2;
+    }
+    storageWarning.classList.toggle('show', total > 4.5 * 1024 * 1024);
+  } catch(e) {}
+}
+
+// === DOCUMENTS ===
+function genId() {
+  if (crypto.randomUUID) return crypto.randomUUID();
+  return Date.now().toString(36) + Math.random().toString(36).slice(2);
+}
+
+function createWelcomeDoc() {
+  const id = genId();
+  data.docs[id] = {
+    id,
+    title: 'Welcome to freepage.app',
+    content: '<h1>Welcome to freepage.app</h1><p>Start writing your document here. freepage.app is a free, browser-based document writer — no login, no cloud, no downloads.</p><h2>Quick Start</h2><p>Use the <strong>toolbar above</strong> to format your text, or try these keyboard shortcuts:</p><ul><li><strong>Ctrl+B</strong> — Bold</li><li><strong>Ctrl+I</strong> — Italic</li><li><strong>Ctrl+U</strong> — Underline</li><li><strong>Ctrl+K</strong> — Insert link</li><li><strong>Ctrl+Shift+F</strong> — Focus mode</li><li><strong>Ctrl+H</strong> — Find &amp; Replace</li></ul><h2>Your Documents</h2><p>All documents are saved automatically to your browser. Use the sidebar to create and manage multiple documents. Export your work as .txt, .md, or .html at any time.</p><p>Happy writing!</p>',
+    createdAt: Date.now(),
+    updatedAt: Date.now()
+  };
+  data.docOrder.unshift(id);
+  data.activeDocId = id;
+  saveData();
+}
+
+function createNewDoc(title, content) {
+  const id = genId();
+  data.docs[id] = {
+    id,
+    title: title || 'Untitled Document',
+    content: content || '<p><br></p>',
+    createdAt: Date.now(),
+    updatedAt: Date.now()
+  };
+  data.docOrder.unshift(id);
+  data.activeDocId = id;
+  saveData();
+  loadActiveDoc();
+  renderDocList();
+  return id;
+}
+
+function switchDoc(id) {
+  if (!data.docs[id]) return;
+  saveCurrentDoc(true);
+  data.activeDocId = id;
+  saveData();
+  loadActiveDoc();
+  renderDocList();
+}
+
+function loadActiveDoc() {
+  const doc = data.docs[data.activeDocId];
+  if (!doc) return;
+  editor.innerHTML = doc.content;
+  docTitle.value = doc.title;
+  unsaved = false;
+  updateStatus();
+  updateStats();
+}
+
+function saveCurrentDoc(immediate) {
+  const doc = data.docs[data.activeDocId];
+  if (!doc) return;
+  doc.content = editor.innerHTML;
+  doc.title = docTitle.value.trim() || 'Untitled Document';
+  doc.updatedAt = Date.now();
+  saveData();
+  unsaved = false;
+  updateStatus();
+  if (!immediate) renderDocList();
+}
+
+function markUnsaved() {
+  unsaved = true;
+  updateStatus();
+  clearTimeout(saveTimeout);
+  saveTimeout = setTimeout(() => {
+    saveCurrentDoc(false);
+    renderDocList();
+  }, 2000);
+}
+
+function updateStatus() {
+  statusCenter.textContent = unsaved ? 'Unsaved changes' : 'All changes saved';
+}
+
+// === DOC LIST ===
+function renderDocList() {
+  docList.innerHTML = '';
+  data.docOrder.forEach(id => {
+    const doc = data.docs[id];
+    if (!doc) return;
+    const div = document.createElement('div');
+    div.className = 'doc-item' + (id === data.activeDocId ? ' active' : '');
+    const text = stripHtml(doc.content);
+    const wc = countWords(text);
+    const ago = relativeTime(doc.updatedAt);
+    div.innerHTML = '<div class="doc-item-title">' + escHtml(doc.title) + '</div><div class="doc-item-meta">' + wc + ' words · ' + ago + '</div><button class="doc-item-menu" data-id="' + id + '">⋮</button>';
+    div.addEventListener('click', (e) => {
+      if (e.target.classList.contains('doc-item-menu')) return;
+      switchDoc(id);
+      if (window.innerWidth <= 768) toggleSidebar(false);
+    });
+    div.querySelector('.doc-item-menu').addEventListener('click', (e) => {
+      e.stopPropagation();
+      showContextMenu(e, id);
+    });
+    div.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      showContextMenu(e, id);
+    });
+    docList.appendChild(div);
+  });
+}
+
+function showContextMenu(e, id) {
+  contextMenuDocId = id;
+  contextMenu.style.left = Math.min(e.clientX, window.innerWidth - 170) + 'px';
+  contextMenu.style.top = Math.min(e.clientY, window.innerHeight - 120) + 'px';
+  contextMenu.classList.add('show');
+}
+
+window.renameDoc = function() {
+  contextMenu.classList.remove('show');
+  const doc = data.docs[contextMenuDocId];
+  if (!doc) return;
+  const name = prompt('Rename document:', doc.title);
+  if (name !== null && name.trim()) {
+    doc.title = name.trim();
+    doc.updatedAt = Date.now();
+    if (contextMenuDocId === data.activeDocId) docTitle.value = doc.title;
+    saveData();
+    renderDocList();
+  }
+};
+
+window.duplicateDoc = function() {
+  contextMenu.classList.remove('show');
+  const doc = data.docs[contextMenuDocId];
+  if (!doc) return;
+  createNewDoc(doc.title + ' (copy)', doc.content);
+  toast('Document duplicated');
+};
+
+window.deleteDoc = function() {
+  contextMenu.classList.remove('show');
+  const doc = data.docs[contextMenuDocId];
+  if (!doc) return;
+  if (!confirm('Delete "' + doc.title + '"?')) return;
+  delete data.docs[contextMenuDocId];
+  data.docOrder = data.docOrder.filter(i => i !== contextMenuDocId);
+  if (data.activeDocId === contextMenuDocId) {
+    data.activeDocId = data.docOrder[0] || null;
+    if (!data.activeDocId) createNewDoc();
+    else loadActiveDoc();
+  }
+  saveData();
+  renderDocList();
+  toast('Document deleted');
+};
+
+// === TOOLBAR ===
+document.querySelectorAll('.tool-btn[data-cmd]').forEach(btn => {
+  btn.addEventListener('mousedown', e => e.preventDefault());
+  btn.addEventListener('click', () => execCommand(btn.dataset.cmd));
+});
+
+function execCommand(cmd) {
+  editor.focus();
+  if (cmd === 'h1' || cmd === 'h2' || cmd === 'h3') {
+    document.execCommand('formatBlock', false, '<' + cmd + '>');
+  } else if (cmd === 'blockquote') {
+    document.execCommand('formatBlock', false, '<blockquote>');
+  } else if (cmd === 'createLink') {
+    showLinkDialog();
+    return;
+  } else {
+    document.execCommand(cmd, false, null);
+  }
+  updateToolbarState();
+  markUnsaved();
+}
+
+function updateToolbarState() {
+  document.querySelectorAll('.tool-btn[data-cmd]').forEach(btn => {
+    const cmd = btn.dataset.cmd;
+    let active = false;
+    try {
+      if (['bold','italic','underline','strikeThrough','insertUnorderedList','insertOrderedList'].includes(cmd)) {
+        active = document.queryCommandState(cmd);
+      } else if (cmd === 'h1' || cmd === 'h2' || cmd === 'h3') {
+        const block = document.queryCommandValue('formatBlock');
+        active = block.toLowerCase() === cmd;
+      } else if (cmd === 'blockquote') {
+        const block = document.queryCommandValue('formatBlock');
+        active = block.toLowerCase() === 'blockquote';
+      }
+    } catch(e) {}
+    btn.classList.toggle('active', active);
+  });
+}
+
+// === LINK DIALOG ===
+function showLinkDialog() {
+  savedSelection = saveSelection();
+  const sel = window.getSelection();
+  linkText.value = sel.toString();
+  linkUrl.value = '';
+  linkDialogOverlay.classList.add('show');
+  linkUrl.focus();
+}
+
+$('linkCancelBtn').addEventListener('click', () => {
+  linkDialogOverlay.classList.remove('show');
+});
+
+$('linkInsertBtn').addEventListener('click', () => {
+  const url = linkUrl.value.trim();
+  if (!url) return;
+  linkDialogOverlay.classList.remove('show');
+  editor.focus();
+  restoreSelection(savedSelection);
+  const text = linkText.value.trim() || url;
+  const sel = window.getSelection();
+  if (sel.toString()) {
+    document.execCommand('createLink', false, url);
+  } else {
+    const a = document.createElement('a');
+    a.href = url;
+    a.textContent = text;
+    sel.getRangeAt(0).insertNode(a);
+    sel.collapseToEnd();
+  }
+  markUnsaved();
+});
+
+linkDialogOverlay.addEventListener('click', (e) => {
+  if (e.target === linkDialogOverlay) linkDialogOverlay.classList.remove('show');
+});
+
+function saveSelection() {
+  const sel = window.getSelection();
+  if (sel.rangeCount > 0) return sel.getRangeAt(0).cloneRange();
+  return null;
+}
+
+function restoreSelection(range) {
+  if (!range) return;
+  const sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+}
+
+// === STATS ===
+function stripHtml(html) {
+  const tmp = document.createElement('div');
+  tmp.innerHTML = html;
+  return tmp.textContent || '';
+}
+
+function countWords(text) {
+  const trimmed = text.trim();
+  if (!trimmed) return 0;
+  return trimmed.split(/\s+/).length;
+}
+
+function updateStats() {
+  const text = stripHtml(editor.innerHTML);
+  const words = countWords(text);
+  const chars = text.length;
+  const charsNoSpace = text.replace(/\s/g, '').length;
+  const sentences = text.split(/[.!?]+/).filter(s => s.trim()).length;
+  const paragraphs = editor.querySelectorAll('p, h1, h2, h3, li, blockquote').length || (text.trim() ? 1 : 0);
+  const readMin = Math.max(1, Math.ceil(words / 238));
+  const speakMin = Math.max(1, Math.ceil(words / 150));
+
+  $('statWords').textContent = words;
+  $('statChars').textContent = chars;
+  $('statCharsNoSpace').textContent = charsNoSpace;
+  $('statSentences').textContent = sentences;
+  $('statParagraphs').textContent = paragraphs;
+  $('statReadTime').textContent = words === 0 ? '0m' : readMin + 'm';
+  $('statSpeakTime').textContent = words === 0 ? '0m' : speakMin + 'm';
+  statusLeft.textContent = words + ' words · ' + chars + ' characters';
+}
+
+// === EDITOR EVENTS ===
+editor.addEventListener('input', () => {
+  markUnsaved();
+  updateStats();
+  updateToolbarState();
+});
+
+editor.addEventListener('keyup', updateToolbarState);
+editor.addEventListener('mouseup', updateToolbarState);
+
+editor.addEventListener('paste', (e) => {
+  e.preventDefault();
+  const html = e.clipboardData.getData('text/html');
+  const text = e.clipboardData.getData('text/plain');
+  if (html) {
+    const clean = sanitizePaste(html);
+    document.execCommand('insertHTML', false, clean);
+  } else {
+    document.execCommand('insertText', false, text);
+  }
+});
+
+function sanitizePaste(html) {
+  const tmp = document.createElement('div');
+  tmp.innerHTML = html;
+  const allowed = ['P','H1','H2','H3','STRONG','B','EM','I','U','S','STRIKE','A','UL','OL','LI','BLOCKQUOTE','BR','HR','CODE'];
+  function clean(node) {
+    const children = Array.from(node.childNodes);
+    children.forEach(child => {
+      if (child.nodeType === 3) return;
+      if (child.nodeType === 1) {
+        if (!allowed.includes(child.tagName)) {
+          const frag = document.createDocumentFragment();
+          while (child.firstChild) frag.appendChild(child.firstChild);
+          node.replaceChild(frag, child);
+        } else {
+          // Remove all attributes except href on links
+          const attrs = Array.from(child.attributes || []);
+          attrs.forEach(a => {
+            if (!(child.tagName === 'A' && a.name === 'href')) {
+              child.removeAttribute(a.name);
+            }
+          });
+          clean(child);
+        }
+      } else {
+        node.removeChild(child);
+      }
+    });
+  }
+  clean(tmp);
+  return tmp.innerHTML;
+}
+
+// === TITLE ===
+docTitle.addEventListener('input', markUnsaved);
+docTitle.addEventListener('change', () => {
+  const doc = data.docs[data.activeDocId];
+  if (doc) {
+    doc.title = docTitle.value.trim() || 'Untitled Document';
+    renderDocList();
+  }
+});
+
+// === KEYBOARD SHORTCUTS ===
+document.addEventListener('keydown', (e) => {
+  const mod = e.ctrlKey || e.metaKey;
+  if (mod && e.key === 's') {
+    e.preventDefault();
+    saveCurrentDoc(false);
+    renderDocList();
+    toast('Document saved');
+  } else if (mod && e.shiftKey && e.key === 'F') {
+    e.preventDefault();
+    toggleFocusMode();
+  } else if (mod && e.shiftKey && e.key === 'S') {
+    e.preventDefault();
+    editor.focus();
+    document.execCommand('strikeThrough', false, null);
+    markUnsaved();
+  } else if (mod && e.shiftKey && e.key === 'E') {
+    e.preventDefault();
+    exportDropdown.classList.toggle('show');
+  } else if (mod && e.key === 'h') {
+    e.preventDefault();
+    toggleFindReplace();
+  } else if (mod && e.key === 'k') {
+    e.preventDefault();
+    showLinkDialog();
+  } else if (mod && e.altKey && (e.key === '1' || e.code === 'Digit1')) {
+    e.preventDefault();
+    execCommand('h1');
+  } else if (mod && e.altKey && (e.key === '2' || e.code === 'Digit2')) {
+    e.preventDefault();
+    execCommand('h2');
+  } else if (mod && e.altKey && (e.key === '3' || e.code === 'Digit3')) {
+    e.preventDefault();
+    execCommand('h3');
+  } else if (mod && e.altKey && (e.key === 'n' || e.key === 'N')) {
+    e.preventDefault();
+    createNewDoc();
+  } else if (mod && e.shiftKey && (e.key === '7' || e.code === 'Digit7')) {
+    e.preventDefault();
+    execCommand('insertOrderedList');
+  } else if (mod && e.shiftKey && (e.key === '8' || e.code === 'Digit8')) {
+    e.preventDefault();
+    execCommand('insertUnorderedList');
+  } else if (mod && e.shiftKey && (e.key === '9' || e.code === 'Digit9')) {
+    e.preventDefault();
+    execCommand('blockquote');
+  }
+});
+
+// === FIND & REPLACE ===
+function toggleFindReplace() {
+  const showing = findReplaceBar.classList.toggle('show');
+  if (showing) {
+    findInput.focus();
+    findInput.select();
+  } else {
+    clearFindHighlights();
+  }
+}
+
+findInput.addEventListener('input', performFind);
+$('findNextBtn').addEventListener('click', () => navigateMatch(1));
+$('findPrevBtn').addEventListener('click', () => navigateMatch(-1));
+$('replaceBtn').addEventListener('click', replaceCurrent);
+$('replaceAllBtn').addEventListener('click', replaceAll);
+$('findCloseBtn').addEventListener('click', () => {
+  findReplaceBar.classList.remove('show');
+  clearFindHighlights();
+});
+
+function performFind() {
+  clearFindHighlights();
+  const query = findInput.value;
+  if (!query) { matchCount.textContent = '0 matches'; return; }
+  const text = editor.innerHTML;
+  const regex = new RegExp(escapeRegex(query), 'gi');
+  let count = 0;
+  editor.innerHTML = text.replace(regex, (match) => {
+    count++;
+    return '<mark class="find-hl">' + match + '</mark>';
+  });
+  findMatches = editor.querySelectorAll('mark.find-hl');
+  currentMatchIndex = findMatches.length > 0 ? 0 : -1;
+  matchCount.textContent = count + ' match' + (count !== 1 ? 'es' : '');
+  if (currentMatchIndex >= 0) highlightCurrent();
+}
+
+function clearFindHighlights() {
+  editor.querySelectorAll('mark.find-hl').forEach(m => {
+    const parent = m.parentNode;
+    parent.replaceChild(document.createTextNode(m.textContent), m);
+    parent.normalize();
+  });
+  findMatches = [];
+  currentMatchIndex = -1;
+}
+
+function highlightCurrent() {
+  findMatches.forEach((m, i) => {
+    m.style.background = i === currentMatchIndex ? 'var(--accent)' : 'rgba(196,154,42,0.25)';
+    m.style.color = i === currentMatchIndex ? 'var(--accent-text)' : 'inherit';
+  });
+  if (findMatches[currentMatchIndex]) {
+    findMatches[currentMatchIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    matchCount.textContent = (currentMatchIndex + 1) + ' of ' + findMatches.length + ' matches';
+  }
+}
+
+function navigateMatch(dir) {
+  if (findMatches.length === 0) return;
+  currentMatchIndex = (currentMatchIndex + dir + findMatches.length) % findMatches.length;
+  highlightCurrent();
+}
+
+function replaceCurrent() {
+  if (currentMatchIndex < 0 || !findMatches[currentMatchIndex]) return;
+  findMatches[currentMatchIndex].textContent = replaceInput.value;
+  const m = findMatches[currentMatchIndex];
+  m.outerHTML = m.textContent;
+  markUnsaved();
+  performFind();
+}
+
+function replaceAll() {
+  if (findMatches.length === 0) return;
+  findMatches.forEach(m => {
+    m.textContent = replaceInput.value;
+    m.outerHTML = m.textContent;
+  });
+  markUnsaved();
+  performFind();
+  toast('Replaced all matches');
+}
+
+function escapeRegex(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// === SIDEBAR ===
+function toggleSidebar(show) {
+  const shouldShow = show !== undefined ? show : sidebar.classList.contains('collapsed');
+  sidebar.classList.toggle('collapsed', !shouldShow);
+  sidebarOverlay.classList.toggle('show', shouldShow && window.innerWidth <= 768);
+}
+
+$('hamburgerBtn').addEventListener('click', () => toggleSidebar());
+sidebarOverlay.addEventListener('click', () => toggleSidebar(false));
+$('newDocBtn').addEventListener('click', () => { createNewDoc(); if (window.innerWidth <= 768) toggleSidebar(false); });
+
+// Show sidebar by default on desktop
+if (window.innerWidth > 768) sidebar.classList.remove('collapsed');
+
+// === STATS TOGGLE (MOBILE) ===
+$('statsToggleBtn').addEventListener('click', () => {
+  rightPanel.classList.toggle('mobile-show');
+});
+
+// === FOCUS MODE ===
+function toggleFocusMode() {
+  const active = appLayout.classList.toggle('focus-mode');
+  localStorage.setItem(FOCUS_KEY, active ? '1' : '0');
+  $('focusModeBtn').textContent = active ? 'Exit Focus' : 'Focus';
+}
+
+$('focusModeBtn').addEventListener('click', toggleFocusMode);
+
+if (localStorage.getItem(FOCUS_KEY) === '1') {
+  appLayout.classList.add('focus-mode');
+  $('focusModeBtn').textContent = 'Exit Focus';
+}
+
+// === THEME ===
+function initTheme() {
+  const saved = localStorage.getItem(THEME_KEY);
+  if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+  }
+}
+
+$('themeToggle').addEventListener('click', () => {
+  const isDark = document.documentElement.classList.toggle('dark');
+  localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
+});
+
+initTheme();
+
+// === EXPORT ===
+$('exportBtn').addEventListener('click', (e) => {
+  e.stopPropagation();
+  exportDropdown.classList.toggle('show');
+});
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('#exportBtn') && !e.target.closest('#exportDropdown')) exportDropdown.classList.remove('show');
+  if (!e.target.closest('.context-menu') && !e.target.closest('.doc-item-menu')) contextMenu.classList.remove('show');
+});
+
+window.exportDoc = function(format) {
+  exportDropdown.classList.remove('show');
+  const doc = data.docs[data.activeDocId];
+  if (!doc) return;
+  const title = sanitizeFilename(doc.title);
+  let content, mime, ext;
+
+  if (format === 'txt') {
+    content = stripHtml(doc.content);
+    mime = 'text/plain';
+    ext = '.txt';
+  } else if (format === 'md') {
+    content = htmlToMarkdown(doc.content);
+    mime = 'text/markdown';
+    ext = '.md';
+  } else {
+    content = generateHtmlExport(doc.title, doc.content);
+    mime = 'text/html';
+    ext = '.html';
+  }
+
+  const blob = new Blob([content], { type: mime });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = title + ext;
+  a.click();
+  URL.revokeObjectURL(url);
+  toast('Exported as ' + ext);
+};
+
+function sanitizeFilename(name) {
+  return name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9\-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '') || 'document';
+}
+
+function htmlToMarkdown(html) {
+  const tmp = document.createElement('div');
+  tmp.innerHTML = html;
+  let md = '';
+  function walk(node) {
+    if (node.nodeType === 3) { md += node.textContent; return; }
+    if (node.nodeType !== 1) return;
+    const tag = node.tagName;
+    if (tag === 'H1') { md += '\n# '; walkChildren(node); md += '\n\n'; }
+    else if (tag === 'H2') { md += '\n## '; walkChildren(node); md += '\n\n'; }
+    else if (tag === 'H3') { md += '\n### '; walkChildren(node); md += '\n\n'; }
+    else if (tag === 'P') { walkChildren(node); md += '\n\n'; }
+    else if (tag === 'STRONG' || tag === 'B') { md += '**'; walkChildren(node); md += '**'; }
+    else if (tag === 'EM' || tag === 'I') { md += '*'; walkChildren(node); md += '*'; }
+    else if (tag === 'U') { walkChildren(node); }
+    else if (tag === 'S' || tag === 'STRIKE') { md += '~~'; walkChildren(node); md += '~~'; }
+    else if (tag === 'A') { md += '['; walkChildren(node); md += '](' + (node.href || '') + ')'; }
+    else if (tag === 'UL') { walkList(node, '- '); }
+    else if (tag === 'OL') { walkOList(node); }
+    else if (tag === 'LI') { walkChildren(node); }
+    else if (tag === 'BLOCKQUOTE') { md += '> '; walkChildren(node); md += '\n\n'; }
+    else if (tag === 'BR') { md += '\n'; }
+    else if (tag === 'HR') { md += '\n---\n\n'; }
+    else if (tag === 'CODE') { md += '`'; walkChildren(node); md += '`'; }
+    else { walkChildren(node); }
+  }
+  function walkChildren(node) { node.childNodes.forEach(walk); }
+  function walkList(node, prefix) {
+    node.querySelectorAll(':scope > li').forEach(li => {
+      md += prefix;
+      li.childNodes.forEach(walk);
+      md += '\n';
+    });
+    md += '\n';
+  }
+  function walkOList(node) {
+    let i = 1;
+    node.querySelectorAll(':scope > li').forEach(li => {
+      md += i + '. ';
+      li.childNodes.forEach(walk);
+      md += '\n';
+      i++;
+    });
+    md += '\n';
+  }
+  walk(tmp);
+  return md.trim() + '\n';
+}
+
+function generateHtmlExport(title, content) {
+  return '<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>' + escHtml(title) + '</title>\n<style>\n@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&display=swap");\nbody{font-family:"Lora",serif;max-width:760px;margin:40px auto;padding:0 24px;font-size:16px;line-height:1.75;color:#1a1917;background:#faf9f6}\nh1,h2,h3{font-family:sans-serif;font-weight:700}\nh1{font-size:28px}h2{font-size:22px}h3{font-size:18px}\na{color:#C49A2A}\nblockquote{border-left:3px solid #C49A2A;padding-left:16px;color:#6b6760;font-style:italic}\nhr{border:none;border-top:1px solid #e8e4dd;margin:24px 0}\ncode{background:#f4f2ee;padding:2px 6px;border-radius:4px;font-family:monospace}\n@media print{body{margin:0;padding:0}}\n</style>\n</head>\n<body>\n' + content + '\n</body>\n</html>';
+}
+
+// === IMPORT ===
+$('importBtn').addEventListener('click', () => fileInput.click());
+$('importBtnSidebar').addEventListener('click', () => fileInput.click());
+
+fileInput.addEventListener('change', (e) => {
+  if (e.target.files.length) importFile(e.target.files[0]);
+  e.target.value = '';
+});
+
+// Drag and drop
+editor.addEventListener('dragover', (e) => { e.preventDefault(); e.dataTransfer.dropEffect = 'copy'; });
+editor.addEventListener('drop', (e) => {
+  const files = e.dataTransfer.files;
+  if (files.length && (files[0].name.endsWith('.txt') || files[0].name.endsWith('.md'))) {
+    e.preventDefault();
+    importFile(files[0]);
+  }
+});
+
+function importFile(file) {
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const text = e.target.result;
+    const title = file.name.replace(/\.(txt|md)$/, '');
+    let content;
+    if (file.name.endsWith('.md')) {
+      content = markdownToHtml(text);
+    } else {
+      content = text.split(/\n\n+/).map(p => '<p>' + escHtml(p.trim()) + '</p>').join('');
+    }
+    createNewDoc(title, content);
+    toast('Imported ' + file.name);
+  };
+  reader.readAsText(file);
+}
+
+function markdownToHtml(md) {
+  let html = md;
+  // Headings
+  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+  html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+  // HR
+  html = html.replace(/^---$/gm, '<hr>');
+  // Bold & italic
+  html = html.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  html = html.replace(/~~(.+?)~~/g, '<s>$1</s>');
+  // Inline code
+  html = html.replace(/`(.+?)`/g, '<code>$1</code>');
+  // Links
+  html = html.replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>');
+  // Blockquotes
+  html = html.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
+  // Unordered lists
+  html = html.replace(/(^[\-\*] .+\n?)+/gm, (match) => {
+    const items = match.trim().split('\n').map(l => '<li>' + l.replace(/^[\-\*] /, '') + '</li>').join('');
+    return '<ul>' + items + '</ul>';
+  });
+  // Ordered lists
+  html = html.replace(/(^\d+\. .+\n?)+/gm, (match) => {
+    const items = match.trim().split('\n').map(l => '<li>' + l.replace(/^\d+\. /, '') + '</li>').join('');
+    return '<ol>' + items + '</ol>';
+  });
+  // Paragraphs — wrap remaining text
+  html = html.split('\n\n').map(block => {
+    block = block.trim();
+    if (!block) return '';
+    if (/^<(h[1-3]|ul|ol|blockquote|hr|p)/.test(block)) return block;
+    return '<p>' + block.replace(/\n/g, '<br>') + '</p>';
+  }).join('');
+  return html;
+}
+
+// === UTILITIES ===
+function escHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function relativeTime(ts) {
+  const diff = Date.now() - ts;
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1) return 'just now';
+  if (mins < 60) return mins + 'm ago';
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return hrs + 'h ago';
+  const days = Math.floor(hrs / 24);
+  if (days < 30) return days + 'd ago';
+  return new Date(ts).toLocaleDateString();
+}
+
+function toast(msg) {
+  const el = document.createElement('div');
+  el.className = 'toast';
+  el.textContent = msg;
+  toastContainer.appendChild(el);
+  setTimeout(() => el.remove(), 3000);
+}
+
+// === INIT ===
+loadData();
+if (data.activeDocId && data.docs[data.activeDocId]) {
+  loadActiveDoc();
+} else if (data.docOrder.length) {
+  data.activeDocId = data.docOrder[0];
+  saveData();
+  loadActiveDoc();
+}
+renderDocList();
+updateStats();
+
+// Register service worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js').catch(() => {});
+}
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+# freepage.app
+
+> Free, browser-based document writer. No login, no cloud, no downloads.
+
+## Key Facts
+
+- 100% free, no account required
+- Rich text editor with formatting toolbar and keyboard shortcuts
+- All documents saved to browser localStorage
+- Export to .txt, .md, and .html
+- Import .txt and .md files
+- Real-time word count, character count, reading time
+- Multiple document management with sidebar
+- Auto-save every 2 seconds
+- Focus mode for distraction-free writing
+- Find and replace
+- Dark mode support
+- Works offline after first visit
+- Mobile responsive
+
+## Pages
+
+- [Home](https://freepage.app/)
