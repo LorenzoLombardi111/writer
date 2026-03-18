@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Writing App for Students — No Login Required | freepage.app</title>
+<meta name="description" content="freepage.app is a free writing app for students. Write essays, notes, and assignments with real-time word count. No login, no ads.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#faf9f6">
+<link rel="canonical" href="https://freepage.app/free-writing-app-for-students.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Free Writing App for Students — No Login Required | freepage.app">
+<meta property="og:description" content="freepage.app is a free writing app for students. Write essays, notes, and assignments with real-time word count. No login, no ads.">
+<meta property="og:url" content="https://freepage.app/free-writing-app-for-students.html">
+<meta property="og:site_name" content="freepage.app">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free Writing App for Students — No Login Required | freepage.app">
+<meta name="twitter:description" content="freepage.app is a free writing app for students. Write essays, notes, and assignments with real-time word count. No login, no ads.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+
+<style>
+:root {
+  --bg: #faf9f6;
+  --surface: #f4f2ee;
+  --border: #e8e4dd;
+  --text-primary: #1a1917;
+  --text-secondary: #6b6760;
+  --text-muted: #9e9b96;
+  --accent: #C49A2A;
+  --accent-hover: #A8831F;
+  --accent-text: #ffffff;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
+  --font-ui: 'DM Sans', sans-serif;
+  --font-content: 'Lora', serif;
+}
+
+html.dark {
+  --bg: #141412;
+  --surface: #1e1c1a;
+  --border: #2e2b27;
+  --text-primary: #f0ede8;
+  --text-secondary: #9e9b96;
+  --text-muted: #6b6760;
+  --accent: #D4A835;
+  --accent-hover: #C49A2A;
+  --accent-text: #ffffff;
+  --shadow: 0 1px 3px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.2);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-content);
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.7;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 24px 16px;
+  }
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.breadcrumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: var(--text-secondary);
+}
+
+.breadcrumb span {
+  color: var(--text-secondary);
+}
+
+/* Last updated */
+.last-updated {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+/* Dark mode toggle */
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 48px;
+  height: 26px;
+  border-radius: 13px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  transition: background 0.15s ease;
+}
+
+.theme-toggle .toggle-knob {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  transition: transform 0.15s ease, background 0.15s ease;
+  transform: translateX(0);
+}
+
+html.dark .theme-toggle .toggle-knob {
+  transform: translateX(22px);
+}
+
+.toggle-knob .icon-sun,
+html.dark .toggle-knob .icon-moon { display: inline; }
+.toggle-knob .icon-moon,
+html.dark .toggle-knob .icon-sun { display: none; }
+
+/* Headings */
+h1 {
+  font-family: var(--font-content);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-family: var(--font-content);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-primary);
+  margin-top: 40px;
+  margin-bottom: 16px;
+}
+
+p {
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+/* CTA button */
+.cta-button {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-text);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 32px 0;
+  transition: background 0.15s ease;
+}
+
+.cta-button:hover {
+  background: var(--accent-hover);
+}
+
+.cta-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* FAQ */
+.faq-section {
+  margin-top: 48px;
+}
+
+.faq-section h2 {
+  margin-bottom: 16px;
+}
+
+details {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+details summary {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 16px;
+  cursor: pointer;
+  background: var(--surface);
+  color: var(--text-primary);
+  transition: background 0.15s ease, color 0.15s ease;
+  list-style: none;
+}
+
+details summary::-webkit-details-marker { display: none; }
+
+details summary::before {
+  content: "+";
+  display: inline-block;
+  width: 18px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+details[open] summary::before {
+  content: "\2212";
+}
+
+details[open] summary {
+  border-bottom: 1px solid var(--border);
+}
+
+details .faq-answer {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Related pages */
+.related-pages {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.related-pages h2 {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.related-pages ul {
+  list-style: none;
+  padding: 0;
+}
+
+.related-pages li {
+  margin-bottom: 8px;
+}
+
+.related-pages a {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.related-pages a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 32px 0;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Badge */
+.badge {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 4px 8px;
+  z-index: 10;
+  text-decoration: none;
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Free Writing App for Students",
+  "datePublished": "2026-03-18",
+  "dateModified": "2026-03-18",
+  "author": {
+    "@type": "Organization",
+    "name": "freepage.app"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "freepage.app"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is freepage.app free for students?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. freepage.app is completely free with no hidden costs, no premium tier, and no login required. Students can open the page and start writing immediately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use freepage.app for essays?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. freepage.app is built for long-form writing like essays, research papers, and assignments. It includes real-time word count, auto-save every 2 seconds, and a clean editor that helps you focus on your writing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does freepage.app count words for essay requirements?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. freepage.app shows a live word count as you type, so you always know exactly where you stand against a minimum or maximum word requirement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does freepage.app work on Chromebooks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. freepage.app runs entirely in the browser and works on Chromebooks, Windows, macOS, tablets, and phones. No installation or app download is needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will my school be able to see what I write?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. freepage.app stores your writing locally in your browser. Nothing is sent to a server, so your school, teachers, or anyone else cannot access your documents through freepage.app."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "freepage.app",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://freepage.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Free Writing App for Students",
+      "item": "https://freepage.app/free-writing-app-for-students.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<button class="theme-toggle" aria-label="Toggle dark mode">
+  <span class="toggle-knob">
+    <span class="icon-sun">&#9788;</span>
+    <span class="icon-moon">&#9790;</span>
+  </span>
+</button>
+
+<div class="container">
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="https://freepage.app/">Home</a> &gt; <span>Free Writing App for Students</span>
+  </nav>
+
+  <p class="last-updated">Last updated: March 18, 2026</p>
+
+  <h1>Free Writing App for Students</h1>
+
+  <p>Most writing tools ask students to create an account, pay for features, or deal with cluttered interfaces full of options they will never use. When you have an essay due at midnight, you need a blank page that loads fast and stays out of the way. That is why <a href="https://freepage.app/">freepage.app</a> exists: a free, no-login writing app that works on any device with a browser.</p>
+
+  <h2>Why do students need a free writing app?</h2>
+
+  <p>Students write constantly. Essays, lab reports, reading responses, discussion posts, personal statements, study notes. The writing itself is hard enough without fighting with software. Google Docs requires a Google account and loads slowly on older hardware. Microsoft Word costs money or needs a school license. Notion is powerful but overwhelming when you just need to write a five-paragraph essay.</p>
+
+  <p>A good writing app for students should do three things well: open instantly, save your work automatically, and tell you how many words you have written. Everything else is noise. Students benefit most from tools that remove friction so they can spend their limited time on the actual writing rather than managing files, formatting toolbars, or login screens.</p>
+
+  <h2>How does freepage.app help with essays and assignments?</h2>
+
+  <p>When you open <a href="https://freepage.app/">freepage.app</a>, you get a clean editor in under 200 milliseconds. There is no sign-up form, no onboarding tour, no template gallery to scroll through. You just start typing. Your work auto-saves to your browser every 2 seconds, so you will never lose a paragraph because you forgot to hit Ctrl+S or your laptop ran out of battery.</p>
+
+  <p>The editor uses a serif font designed for comfortable reading, with generous line spacing that makes it easier to reread and revise your own work. Whether you are drafting a 500-word reflection or a 3,000-word research paper, the interface stays the same: a blank page that lets you think.</p>
+
+  <h2>Does freepage.app track word count for essay requirements?</h2>
+
+  <p>Yes. freepage.app displays a real-time word count as you type, updated with every keystroke. If your professor requires a 1,000-word minimum, you can watch the count climb without switching to another tool or running a manual count. This is especially useful for timed writing assignments where you need to hit a target quickly and cannot afford to break your flow.</p>
+
+  <p>Character count is available as well, which matters for applications, abstracts, and social media posts that cap length by characters rather than words.</p>
+
+  <h2>Does freepage.app work on school Chromebooks?</h2>
+
+  <p>Yes. freepage.app runs entirely in the browser, which makes it ideal for Chromebooks, the most common student laptop in many school districts. It does not require installing an app, downloading an extension, or getting IT approval. If your school computer can open a web page, it can run freepage.app.</p>
+
+  <p>Because the app is lightweight and loads in under 200 milliseconds, it performs well even on low-spec hardware. Older Chromebooks with limited RAM that struggle with Google Docs can handle freepage.app without lag or slowdown. It also works on iPads, Android tablets, Windows laptops, and Macs, so you can start writing at school and continue on your phone at home.</p>
+
+  <h2>Is freepage.app private for student writing?</h2>
+
+  <p>Privacy matters when you are writing personal essays, journaling, or drafting something you are not ready to share. freepage.app stores everything locally in your browser. Your writing is never uploaded to a server, never processed by an algorithm, and never visible to your school, your teacher, or anyone else.</p>
+
+  <p>There are no analytics trackers watching what you type, no accounts linking your documents to your identity, and no cloud sync that could expose your drafts. For students who want a genuinely private space to write and think, this is a meaningful difference from tools that store your files on company servers.</p>
+
+  <h2>A distraction-free space for focused writing</h2>
+
+  <p>Studying and writing require concentration, and most apps actively work against that. Notification badges, chat sidebars, suggested templates, and formatting ribbons compete for your attention. freepage.app takes the opposite approach: there is nothing on the screen except your words. The minimal interface helps you enter a focused state faster and stay there longer, which is exactly what you need when you are trying to finish an assignment before a deadline.</p>
+
+  <a href="https://freepage.app/" class="cta-button">Start Writing Free — No Login Required</a>
+
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <details>
+      <summary>Is freepage.app free for students?</summary>
+      <div class="faq-answer">Yes. freepage.app is completely free with no hidden costs, no premium tier, and no login required. Students can open the page and start writing immediately.</div>
+    </details>
+
+    <details>
+      <summary>Can I use freepage.app for essays?</summary>
+      <div class="faq-answer">Absolutely. freepage.app is built for long-form writing like essays, research papers, and assignments. It includes real-time word count, auto-save every 2 seconds, and a clean editor that helps you focus on your writing.</div>
+    </details>
+
+    <details>
+      <summary>Does freepage.app count words for essay requirements?</summary>
+      <div class="faq-answer">Yes. freepage.app shows a live word count as you type, so you always know exactly where you stand against a minimum or maximum word requirement.</div>
+    </details>
+
+    <details>
+      <summary>Does freepage.app work on Chromebooks?</summary>
+      <div class="faq-answer">Yes. freepage.app runs entirely in the browser and works on Chromebooks, Windows, macOS, tablets, and phones. No installation or app download is needed.</div>
+    </details>
+
+    <details>
+      <summary>Will my school be able to see what I write?</summary>
+      <div class="faq-answer">No. freepage.app stores your writing locally in your browser. Nothing is sent to a server, so your school, teachers, or anyone else cannot access your documents through freepage.app.</div>
+    </details>
+  </section>
+
+  <section class="related-pages">
+    <h2>Related Pages</h2>
+    <ul>
+      <li><a href="https://freepage.app/">freepage.app — Free Document Writer</a></li>
+      <li><a href="https://freepage.app/vs-google-docs.html">freepage.app vs Google Docs</a></li>
+      <li><a href="https://freepage.app/vs-notion.html">freepage.app vs Notion</a></li>
+      <li><a href="https://freepage.app/vs-microsoft-word.html">freepage.app vs Microsoft Word</a></li>
+      <li><a href="https://freepage.app/free-distraction-free-writing-app.html">Free Distraction-Free Writing App</a></li>
+    </ul>
+  </section>
+
+  <footer>&copy; freepage.app</footer>
+
+</div>
+
+<a href="https://freesuite.app" class="badge" target="_blank" rel="noopener">by freesuite.app</a>
+
+<script>
+(function() {
+  var toggle = document.querySelector('.theme-toggle');
+  var html = document.documentElement;
+  var stored = localStorage.getItem('suite_theme');
+  if (stored === 'dark') {
+    html.classList.add('dark');
+  }
+  toggle.addEventListener('click', function() {
+    html.classList.toggle('dark');
+    localStorage.setItem('suite_theme', html.classList.contains('dark') ? 'dark' : 'light');
+  });
+})();
+</script>
+
+</body>
+</html>

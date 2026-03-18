@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Distraction-Free Writing App — Focus Mode | freepage.app</title>
+<meta name="description" content="freepage.app is a free distraction-free writing app with focus mode, Markdown export, and dark mode. Write without clutter.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#faf9f6">
+<link rel="canonical" href="https://freepage.app/free-distraction-free-writing-app.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Free Distraction-Free Writing App — Focus Mode | freepage.app">
+<meta property="og:description" content="freepage.app is a free distraction-free writing app with focus mode, Markdown export, and dark mode. Write without clutter.">
+<meta property="og:url" content="https://freepage.app/free-distraction-free-writing-app.html">
+<meta property="og:site_name" content="freepage.app">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free Distraction-Free Writing App — Focus Mode | freepage.app">
+<meta name="twitter:description" content="freepage.app is a free distraction-free writing app with focus mode, Markdown export, and dark mode. Write without clutter.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+<style>
+:root {
+  --bg:#faf9f6;--surface:#f4f2ee;--border:#e8e4dd;--text-primary:#1a1917;--text-secondary:#6b6760;--text-muted:#9e9b96;--accent:#C49A2A;--accent-hover:#A8831F;--accent-text:#ffffff;--shadow:0 1px 3px rgba(0,0,0,0.06),0 2px 8px rgba(0,0,0,0.04);
+  --font-ui:'DM Sans',sans-serif;
+  --font-content:'Lora',serif;
+}
+html.dark {
+  --bg:#141412;--surface:#1e1c1a;--border:#2e2b27;--text-primary:#f0ede8;--text-secondary:#9e9b96;--text-muted:#6b6760;--accent:#D4A835;--accent-hover:#C49A2A;--accent-text:#ffffff;--shadow:0 1px 3px rgba(0,0,0,0.3),0 2px 8px rgba(0,0,0,0.2);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-content);
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.7;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+.content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+@media (max-width: 768px) {
+  .content { padding: 24px 16px; }
+}
+.breadcrumb {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.breadcrumb a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb span { margin: 0 6px; }
+.updated {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+h1 {
+  font-family: var(--font-content);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  line-height: 1.3;
+}
+h2 {
+  font-family: var(--font-content);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 40px;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+p {
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+a { color: var(--accent); }
+a:hover { color: var(--accent-hover); }
+
+/* Dark mode toggle */
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 20;
+  width: 48px;
+  height: 26px;
+  border-radius: 13px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  transition: background 0.15s ease;
+}
+.theme-toggle .toggle-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease;
+  transform: translateX(0);
+}
+html.dark .theme-toggle .toggle-thumb {
+  transform: translateX(22px);
+}
+.theme-toggle svg { width: 11px; height: 11px; fill: var(--accent-text); }
+.toggle-sun, .toggle-moon { display: none; }
+html:not(.dark) .toggle-sun { display: block; }
+html.dark .toggle-moon { display: block; }
+
+/* CTA button */
+.cta-button {
+  display: inline-block;
+  margin: 32px 0;
+  padding: 12px 24px;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+.cta-button:hover { background: var(--accent-hover); color: var(--accent-text); }
+.cta-button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* FAQ */
+details {
+  margin-bottom: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+details summary {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 16px;
+  cursor: pointer;
+  background: var(--surface);
+  color: var(--text-primary);
+  list-style: none;
+  transition: background 0.15s ease;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::marker { display: none; content: ""; }
+details[open] summary { border-bottom: 1px solid var(--border); }
+details .faq-answer {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  background: var(--surface);
+}
+
+/* Related pages */
+.related-pages {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.related-pages h2 { font-size: 1.1rem; margin-top: 0; }
+.related-pages ul {
+  list-style: none;
+  padding: 0;
+}
+.related-pages li {
+  margin-bottom: 8px;
+}
+.related-pages a {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--accent);
+  text-decoration: none;
+}
+.related-pages a:hover { text-decoration: underline; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 32px 24px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Badge */
+.badge {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 4px 8px;
+  z-index: 10;
+  text-decoration: none;
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Free Distraction-Free Writing App",
+  "datePublished": "2026-03-18",
+  "dateModified": "2026-03-18",
+  "author": {
+    "@type": "Organization",
+    "name": "freepage.app"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "freepage.app"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a distraction-free writing app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A distraction-free writing app strips away toolbars, menus, notifications, and other interface clutter so you can focus entirely on your words. freepage.app offers a dedicated focus mode that hides the sidebar, stats, and fades the toolbar, leaving you with a clean centered editor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does freepage.app have a focus mode?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Press Ctrl+Shift+F to toggle focus mode in freepage.app. It hides the sidebar and word-count stats, centers the editor at 720px, and fades the formatting toolbar to low opacity so nothing competes with your writing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is freepage.app good for creative writing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. freepage.app's minimal interface, focus mode, and dark mode make it well suited for creative writing sessions. The Lora serif font and clean layout feel closer to a manuscript than a spreadsheet, and you can export to Markdown, HTML, or .docx when you're ready to publish or share."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use freepage.app for blogging?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. freepage.app supports Markdown export, which works with most blogging platforms like WordPress, Ghost, and Hugo. You can also export as HTML if you need to paste directly into a CMS."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does freepage.app support Markdown export?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. freepage.app lets you export your documents as Markdown (.md), HTML, or .docx files. Markdown export is especially useful for developers and bloggers who publish through static site generators or Markdown-friendly platforms."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "freepage.app",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://freepage.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Free Distraction-Free Writing App",
+      "item": "https://freepage.app/free-distraction-free-writing-app.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()">
+  <div class="toggle-thumb">
+    <svg class="toggle-sun" viewBox="0 0 24 24"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0-3a1 1 0 01-1-1V1a1 1 0 112 0v2a1 1 0 01-1 1zm0 18a1 1 0 01-1-1v-2a1 1 0 112 0v2a1 1 0 01-1 1zm9-9a1 1 0 01-1 1h-2a1 1 0 110-2h2a1 1 0 011 1zM6 12a1 1 0 01-1 1H3a1 1 0 110-2h2a1 1 0 011 1zm13.07-6.07a1 1 0 010 1.41l-1.41 1.42a1 1 0 11-1.42-1.42l1.42-1.41a1 1 0 011.41 0zM7.76 16.24a1 1 0 010 1.41l-1.42 1.42a1 1 0 11-1.41-1.42l1.41-1.41a1 1 0 011.42 0zm10.48 0a1 1 0 011.42 0l1.41 1.41a1 1 0 11-1.41 1.42l-1.42-1.42a1 1 0 010-1.41zM7.76 7.76a1 1 0 01-1.42 0L4.93 6.34a1 1 0 011.41-1.41l1.42 1.41a1 1 0 010 1.42z"/></svg>
+    <svg class="toggle-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>
+  </div>
+</button>
+
+<div class="content">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="https://freepage.app/">Home</a><span>&gt;</span>Free Distraction-Free Writing App
+  </nav>
+  <div class="updated">Last updated: March 18, 2026</div>
+
+  <h1>Free Distraction-Free Writing App</h1>
+
+  <p>Most writing apps try to do too much. They pile on formatting ribbons, comment threads, notification badges, and collaboration panels until the screen looks more like a cockpit than a place to think. If you've ever opened a document just to stare at the toolbar instead of writing, you already understand why distraction-free writing tools exist.</p>
+
+  <p><a href="https://freepage.app/">freepage.app</a> is a free document writer built around one idea: your words should be the only thing on the screen that matters. It runs entirely in your browser, requires no account, and includes a dedicated focus mode designed for writers who want to get into flow and stay there.</p>
+
+  <h2>What is a distraction-free writing app?</h2>
+
+  <p>A distraction-free writing app removes the visual clutter that pulls your attention away from the act of writing. That means hiding toolbars, sidebars, word counts, notifications, and anything else that isn't the sentence you're working on right now. The goal is to recreate the simplicity of pen and paper inside a digital editor.</p>
+
+  <p>This approach isn't new. Tools like iA Writer pioneered the concept of a stripped-down writing environment, and Hemingway Editor took a different angle by highlighting prose issues in real time. Both are excellent at what they do. iA Writer is a beautifully designed native app, though it requires a one-time purchase and runs only on Apple platforms and Windows. Hemingway is more of an editing tool than a drafting environment. If you need a free, browser-based option that focuses on the drafting stage, freepage.app fills that gap.</p>
+
+  <h2>How does freepage.app's focus mode work?</h2>
+
+  <p>Focus mode in freepage.app is toggled with <strong>Ctrl+Shift+F</strong> (or Cmd+Shift+F on Mac). When activated, three things happen. First, the sidebar disappears entirely, removing your document list and navigation from view. Second, the word count and character stats hide themselves. Third, the formatting toolbar fades to low opacity, becoming nearly invisible until you hover over it. What remains is a clean editor centered at 720px on screen, with nothing competing for your attention.</p>
+
+  <p>This isn't a full-screen mode that takes over your operating system. You can still switch tabs or resize your browser. The difference is that within the writing window, there is nothing pulling your eyes away from your text. Many writers find that even small visual elements, like a visible word count, trigger the urge to check progress instead of continuing to write. Focus mode eliminates those micro-distractions.</p>
+
+  <h2>Why does distraction-free writing improve productivity?</h2>
+
+  <p>Research on creative work consistently shows that context switching is expensive. Every time your brain shifts from writing to checking a word count, glancing at a notification, or hunting through a menu, it takes time to return to the mental state you were in. For writers, that mental state, sometimes called flow, is where the best work happens. You lose it in seconds and it can take minutes to rebuild.</p>
+
+  <p>A minimal interface reduces the number of decisions your brain has to make. There's no ribbon with 40 formatting options. There's no sidebar tempting you to reorganize your files. There's just text, a blinking cursor, and the next sentence. freepage.app also supports dark mode, which matters more than it might seem. Writers who work in the evening or early morning often find that a dark background with light text is easier on the eyes and feels less clinical than a bright white page.</p>
+
+  <h2>How does freepage.app compare to other distraction-free writing tools?</h2>
+
+  <p>iA Writer remains the gold standard for native distraction-free writing, and it deserves that reputation. Its typography, focus mode, and Markdown support are all first-rate. The tradeoff is cost and platform lock-in. If you write on a Chromebook, a Linux machine, or a shared computer, iA Writer isn't an option.</p>
+
+  <p>Hemingway Editor is a different kind of tool. It's less about distraction-free drafting and more about post-draft editing. It highlights complex sentences, passive voice, and readability issues. It's useful, but it's not the place to write a first draft when you just need to get words out.</p>
+
+  <p>Google Docs and Notion are powerful collaborative tools, but their interfaces are crowded by design. They prioritize features like commenting, sharing, version history, and embedded databases. That's the right choice for team workflows, but it's the opposite of what you want when you're trying to write without interruption.</p>
+
+  <p>freepage.app sits in a specific niche: a free, browser-based writing environment with a genuine focus mode, Markdown support, and enough export options to fit into a real publishing workflow. It doesn't try to replace a full word processor. It's for the drafting stage, where fewer features actually means better output.</p>
+
+  <h2>Can freepage.app be used for creative writing and blogging?</h2>
+
+  <p>Yes, and those are two of its strongest use cases. For creative writing, the combination of focus mode, a serif font in the editor, and dark mode creates an environment that feels more like a manuscript page than a software application. You can write without worrying about formatting and handle styling later, which is how most professional authors work.</p>
+
+  <p>For blogging, freepage.app's export flexibility is the key feature. You can write in a clean editor and then export as Markdown, which drops directly into platforms like WordPress, Ghost, Hugo, or Jekyll without conversion issues. If your CMS expects HTML, that export option is available too. And if an editor or collaborator needs a .docx file, freepage.app handles that as well. This means you can draft in a calm, focused environment and then move the document into whatever publishing pipeline you use, without copying and pasting between tools or losing formatting along the way.</p>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <details>
+    <summary>What is a distraction-free writing app?</summary>
+    <div class="faq-answer">A distraction-free writing app strips away toolbars, menus, notifications, and other interface clutter so you can focus entirely on your words. freepage.app offers a dedicated focus mode that hides the sidebar, stats, and fades the toolbar, leaving you with a clean centered editor.</div>
+  </details>
+
+  <details>
+    <summary>Does freepage.app have a focus mode?</summary>
+    <div class="faq-answer">Yes. Press Ctrl+Shift+F to toggle focus mode in freepage.app. It hides the sidebar and word-count stats, centers the editor at 720px, and fades the formatting toolbar to low opacity so nothing competes with your writing.</div>
+  </details>
+
+  <details>
+    <summary>Is freepage.app good for creative writing?</summary>
+    <div class="faq-answer">Yes. freepage.app's minimal interface, focus mode, and dark mode make it well suited for creative writing sessions. The Lora serif font and clean layout feel closer to a manuscript than a spreadsheet, and you can export to Markdown, HTML, or .docx when you're ready to publish or share.</div>
+  </details>
+
+  <details>
+    <summary>Can I use freepage.app for blogging?</summary>
+    <div class="faq-answer">Absolutely. freepage.app supports Markdown export, which works with most blogging platforms like WordPress, Ghost, and Hugo. You can also export as HTML if you need to paste directly into a CMS.</div>
+  </details>
+
+  <details>
+    <summary>Does freepage.app support Markdown export?</summary>
+    <div class="faq-answer">Yes. freepage.app lets you export your documents as Markdown (.md), HTML, or .docx files. Markdown export is especially useful for developers and bloggers who publish through static site generators or Markdown-friendly platforms.</div>
+  </details>
+
+  <a href="https://freepage.app/" class="cta-button">Start Writing in Focus Mode — It's Free</a>
+
+  <div class="related-pages">
+    <h2>Related Pages</h2>
+    <ul>
+      <li><a href="https://freepage.app/">freepage.app — Free Document Writer</a></li>
+      <li><a href="https://freepage.app/vs-google-docs.html">freepage.app vs Google Docs</a></li>
+      <li><a href="https://freepage.app/vs-notion.html">freepage.app vs Notion</a></li>
+      <li><a href="https://freepage.app/vs-microsoft-word.html">freepage.app vs Microsoft Word</a></li>
+      <li><a href="https://freepage.app/free-writing-app-for-students.html">Free Writing App for Students</a></li>
+    </ul>
+  </div>
+</div>
+
+<footer>&copy; freepage.app</footer>
+
+<a href="https://freesuite.app" class="badge" target="_blank" rel="noopener">by freesuite.app</a>
+
+<script>
+(function() {
+  var saved = localStorage.getItem('suite_theme');
+  if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+  }
+})();
+function toggleTheme() {
+  var html = document.documentElement;
+  html.classList.toggle('dark');
+  localStorage.setItem('suite_theme', html.classList.contains('dark') ? 'dark' : 'light');
+}
+</script>
+</body>
+</html>

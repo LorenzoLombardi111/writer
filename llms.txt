@@ -7,7 +7,7 @@
 - 100% free, no account required
 - Rich text editor with formatting toolbar and keyboard shortcuts
 - All documents saved to browser localStorage
-- Export to .txt, .md, and .html
+- Export to .txt, .md, .html, .pdf, and .docx
 - Import .txt and .md files
 - Real-time word count, character count, reading time
 - Multiple document management with sidebar
@@ -20,4 +20,9 @@
 
 ## Pages
 
-- [Home](https://freepage.app/)
+- [Home](https://freepage.app/) — Free online document writer with rich formatting, auto-save, and export
+- [freepage.app vs Google Docs](https://freepage.app/vs-google-docs.html) — Comparison of freepage.app and Google Docs: privacy, speed, and simplicity
+- [freepage.app vs Notion](https://freepage.app/vs-notion.html) — Comparison of freepage.app and Notion: writing focus vs project management
+- [freepage.app vs Microsoft Word](https://freepage.app/vs-microsoft-word.html) — Comparison of freepage.app and Microsoft Word: free browser alternative
+- [Free Writing App for Students](https://freepage.app/free-writing-app-for-students.html) — Free writing tool for essays, papers, and assignments with word count
+- [Free Distraction-Free Writing App](https://freepage.app/free-distraction-free-writing-app.html) — Focus mode writing app for writers, bloggers, and creatives
