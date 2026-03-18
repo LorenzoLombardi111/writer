@@ -1,5 +1,5 @@
 const CACHE_NAME = 'freepage-v1';
-const ASSETS = ['/', '/index.html', '/manifest.json', '/og-image.svg'];
+const ASSETS = ['/', '/index.html', '/manifest.json', '/og-image.svg', '/favicon.svg'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(
